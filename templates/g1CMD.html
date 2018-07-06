@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+	{% include "_leftMenuG1.html" %}
+<div class="content">
+<h1>G1 Commands for FP500 fiscal printer -Status and Info</h1>
+<br>
+<p> Example for Get DateTime command:</p> <br>
+<p><font color = "green">Command Name	:</font>[ {{cmdName}} ]__<b>Hex value: {{cmdXvalue}}</b></p> 
+<p><font color = "green">Full message -Hex	:</font>[ {{fullMsg}} ]</p>
+<p><font color = "green">Status Field	:</font>[ {{varStatus}} ]</p> 
+</div>  
+{% endblock %}
+
+{% block foot_cmd %}
+
+<h5> <font color= "red"> Run command from the left menu {block foot}</font></h5>
+</div>
+</div>    
+{% endblock %}

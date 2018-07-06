@@ -1,0 +1,28 @@
+
+<html>
+
+    <head>
+    <meta charset="utf-8"/>
+	<!--<link rel="stylesheet" media="screen" href = "{{ url_for('static', filename='styles.css') }}">-->
+
+      {% if title %}
+      <title>{{ title }} - Microblog</title>
+      {% else %}
+      <title>Welcome to Microblog</title>
+      {% endif %}
+	 <link rel='stylesheet'  href='../static/styles.css' type='text/css' media='all' /> 
+    </head>
+    <body>
+        <div  style="text-align:center;"><h2>FP550 Fiscal Printer Test Console</h2></div>
+<div id="cssmenu">
+<ul>
+<li class='active'><a href="/index"><span>Home</span></a></li><li><a href="/g1_cmd"><span>G1 Commands</span></a></li><li><a href="/g2_cmd"><span>G2 Commands</span></a></li><li><a href="/g3_cmd"><span>G3 Commands</span></a><a href="/contact">Contact Us</a> </li>
+</ul></div>
+        <hr>
+        {% block content %}{% endblock %}
+	{% block foot_cmd %}{% endblock %}
+<hr>
+<hr>
+<div  style="text-align:center;"><h5>© 2018. All rights reserved.</h5></div>
+    </body>
+</html>

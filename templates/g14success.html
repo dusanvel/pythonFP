@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block content %}
+   
+      <h2> <font color= green>Current printer status: {{ statusHex }}</font></h2?
+{% for i in range(0,6) %}
+	<br><h3>Byte {{i}}:</h3>
+	<table>
+<tr>
+<th>{% if status[0][i] == "1" %}<p>1</p>{% else %}<p>0</p>{% endif %}</th>
+<th>Opis</th>
+</tr>
+<tr>
+<th>{% if status[1][i] == "1" %}<p>1</p>{% else %}<p>0</p>{% endif %}</th>
+<th>Opis</th>
+</tr>
+<tr>
+<th>{% if status[2][i] == "1" %}<p>1</p>{% else %}<p>0</p>{% endif %}</th>
+<th>Opis</th>
+</tr>
+<tr>
+<th>{% if status[3][i] == "1" %}<p>1</p>{% else %}<p>0</p>{% endif %}</th>
+<th>Opis</th>
+</tr>
+<tr>
+<th>{% if status[4][i] == "1" %}<p>1</p>{% else %}<p>0</p>{% endif %}</th>
+<th>Opis</th>
+</tr>
+<tr>
+<th>{% if status[5][i] == "1" %}<p>1</p>{% else %}<p>0</p>{% endif %}</th>
+<th>Opis</th>
+</tr>
+<tr>
+<th>{% if status[6][i] == "1" %}<p>1</p>{% else %}<p>0</p>{% endif %}</th>
+<th>Opis</th>
+</tr>
+<tr>
+<th>{% if status[7][i] == "1" %}<p>1</p>{% else %}<p>0</p>{% endif %}</th>
+<th>Opis</th>
+</tr>
+	</table>
+{% endfor %}
+      
+{%endblock%}

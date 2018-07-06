@@ -1,0 +1,21 @@
+<html>
+    <head>
+      {% if title %}
+      <title>{{ title }} - Microblog</title>
+      {% else %}
+      <title>Welcome to Microblog</title>
+      {% endif %}
+<link rel="stylesheet" media="screen" href = "{{ url_for('static', filename='styles.css') }}">
+    </head>
+    <body>
+        <div  style="background-color:lightblue">FP550 Fiscal Printer Test Console</div>
+<div><h1>Main Menu: <a href="/index">Home</a></h1></div>
+<div>FP550 : <a href="/g1_cmd">G1 Commands</a>  <a href="/g2_cmd">G2 Commands</a>  <a href="/g3_cmd">G3 Commands</a></div>
+        <hr>
+        {% block content %}{% endblock %}
+	{% block foot_cmd %}{% endblock %}\
+<hr>
+<hr>
+<h5 color= "red">General Footer frame direct from the "base.html"</h5>
+    </body>
+</html>

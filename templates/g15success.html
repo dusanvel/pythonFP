@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+{% block content %}
+   
+      <h2> <font color= green>Printer photo:</font> {{ts1}}</h2>
+
+<!--<div style="width: 400; height: 300; border: 2px dotted black;">
+<p>{{ts1}}</p>
+	<img src="{{ url_for('static', filename = ts1) }}" style="width: 100%; height: 100%; object-fit: contain">
+
+</div>-->
+<div style="width: 800px;">
+
+		<div style="width: 500px; float: right; border:1px solid #ccc; padding: 15px;">
+			History images<br /><br />
+			<div class="row">
+			<div class="column">
+			<ul style="font-size: 16px; float: left;line-height: 1.5; padding-left: 20px; border:1px solid #ccc">
+			<li>ImageTitleNo1</li>
+			<li>ImageTitleNo2</li>
+			<li>ImageTitleNo3</li>
+			<li>ImageTitleNo4</li>
+			<li>ImageTitleNo5</li>
+			<li>ImageTitleNo6</li>
+			<li>ImageTitleNo7</li>
+			<li>ImageTitleNo8</li>
+			<li>ImageTitleNo9</li>
+			<li>ImageTitleNo10</li>
+			</ul>
+			</div>
+			<div class="column">
+			<ul style="font-size: 16px;float: right; line-height: 1.5; padding-left: 20px;right; border:1px solid #ccc;">
+			<li>ImageTitleNo11</li>
+			<li>ImageTitleNo12</li>
+			<li>ImageTitleNo13</li>
+			<li>ImageTitleNo14</li>
+			<li>ImageTitleNo15</li>
+			<li>ImageTitleNo16</li>
+			<li>ImageTitleNo17</li>
+			<li>ImageTitleNo18</li>
+			<li>ImageTitleNo19</li>
+			<li>ImageTitleNo20</li>
+			</ul>
+			</div>
+			<div class="pagination" style="border:3px solid #ccc;position: absolute; height: 30px; border: solid; bottom: 10;  ">
+
+			<a href="#">&laquo;</a>
+			<a href="#" class="active" >1</a>
+			<a href="#">2</a>
+			<a href="#">3</a>
+			<a href="#">4</a>
+			<a href="#">5</a>
+			<a href="#">6</a>
+			<a href="#">7</a>
+			<a href="#">8</a>
+			<a href="#">9</a>
+			<a href="#">10</a>
+			<a href="#">&raquo;</a>
+			</div>
+			</div>
+			
+			
+
+		</div>
+
+
+<div class="img-zoom-container">
+  <img id="myimage" src="{{ url_for('static', filename = ts1) }}" width="300" height="240">
+  <div id="myresult" class="img-zoom-result"></div>
+</div>
+</div>
+<script>
+// Initiate zoom effect:
+imageZoom("myimage", "myresult");
+</script>
+      
+{%endblock%}
