@@ -7,7 +7,8 @@ import time
 from commands_v1 import *
 import config
 
-#port = serial.Serial("/dev/ttyUSB0", baudrate=19200, timeout=14.0)
+if config.sim == False:
+    port = serial.Serial("/dev/ttyUSB0", baudrate=19200, timeout=14.0)
 
 # print chr(SALE)
 #print SUBTOTAL, TOTAL

@@ -7,6 +7,7 @@ from sqlalchemy.orm import sessionmaker
 from tabledef import *
 from commands import cmd_Get_Date_Time, cmd_Get_PIB, cmd_Paper_Move, cmd_Get_Status
 import datetime
+import os
 #from app import app
 app = Flask(__name__)
 app.secret_key = 'development key'
@@ -116,16 +117,32 @@ def g15_cmd():
     form = SubmitForm()
     st= datetime.datetime.now().strftime("%Y-%m-%d--%H-%M") # exmp: 2018-07-01--16-57
     ts= str(st) #.split('.')[0] #eliminise miliseconds
-    ts11="/home/pi/Public/WWWpy/static/"+ts+".jpg"
-    ts1=ts+".jpg"
+    ts11="/home/pi/Public/WWWpy/static/images/"+ts+".jpg"
+    ts1="images/"+ts+".jpg"
     print ts1
+    filelist = []
+
+    for root, dirs, files in os.walk("./static/images", topdown=False):
+        for name in sorted(files,reverse=True):
+            filelist.append(name)
+            print name
+    
     if request.method == 'POST':
         call(["fswebcam", "-d", "/dev/video0", "-r", "1280x720","--top-banner", ts11])
-        return render_template('g15success.html',ts1=ts1)
+        return render_template('g15success.html',ts1=ts1,filelist=filelist)
 
         
     elif request.method == 'GET':
         return render_template('g15CMD.html', form = form)
+
+@app.route('/g15history/<image>')
+def g15_history(image):
+    filelist = []
+    for root, dirs, files in os.walk("./static/images", topdown=False):
+        for name in sorted(files,reverse=True):
+            filelist.append(name)
+    ts1 = "images/"+image
+    return render_template('g15success.html',ts1=ts1,filelist=filelist)
 
 @app.route('/g2_cmd')
 def g2_cmd():
