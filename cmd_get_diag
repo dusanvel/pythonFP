@@ -1,0 +1,22 @@
+def cmd_Get_Diag():
+    print "GET DIAG x47_______________________"
+    data=""
+    cmd1= 0x47 #GET_STATUS #\x4A
+    pack=build_packet(cmd1, data)
+    '''for character in pack:
+      print character, character.encode('hex'),';',
+    print '-->' '''
+    port.write(pack)  #send packet
+    print "GET DIAG-Command -Sent"
+    print 'SeqNum:',hex(seq_num(False))
+
+    # Prijem odziva od FP
+    recv()
+    output.append('Recv class packet data: '+str(pck_Data))
+    output.append('LEN='+str(pck_Len))
+    output.append('SEQ='+str(pck_Seq))
+    otuput.append('Cmd='+str(pck_Cmd))
+    output.append('Status:'+str(pck_Sts))
+    if config.sim == False:
+        port.close
+    return output
