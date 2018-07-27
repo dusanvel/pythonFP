@@ -120,7 +120,7 @@ def g15_cmd():
     ts11="/home/pi/Public/WWWpy/static/images/"+ts+".jpg"
     ts1="images/"+ts+".jpg"
     print ts1
-    filelist = []
+    filelist = [] # filelist[1]=
 
     for root, dirs, files in os.walk("./static/images", topdown=False):
         for name in sorted(files,reverse=True):
@@ -135,8 +135,17 @@ def g15_cmd():
     elif request.method == 'GET':
         return render_template('g15CMD.html', form = form)
 
+@app.route('/g15history')
+def g15_history():
+    filelist = []
+    for root, dirs, files in os.walk("./static/images", topdown=False):
+        for name in sorted(files,reverse=True):
+            filelist.append(name)
+    ts1 = "images/"+filelist[0]
+    return render_template('g15success.html',ts1=ts1,filelist=filelist)
+
 @app.route('/g15history/<image>')
-def g15_history(image):
+def g15_history_img(image):
     filelist = []
     for root, dirs, files in os.walk("./static/images", topdown=False):
         for name in sorted(files,reverse=True):
